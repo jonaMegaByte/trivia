@@ -7,7 +7,8 @@ export default [
       'Maradona',
       'Pele',
       'Iniesta'
-    ]
+    ],
+    correct: 'Pele'
   },
   {
     question: '¿Dónde se jugó la primera copa del mundo?',
@@ -17,7 +18,8 @@ export default [
       'Brazil',
       'Alemania',
       'Mexico'
-    ]
+    ],
+    correct: 'Uruguay'
   },
   {
     question: '¿Qué equipo de fútbol ha ganado más copas de Europa?',
@@ -27,7 +29,8 @@ export default [
       'Inter de Milan',
       'Real Madrid',
       'Milan'
-    ]
+    ],
+    correct: 'Real Madrid'
   },
   {
     question: '¿Qué nombre recibe la liga de fútbol alemana de máxima categoría?',
@@ -37,7 +40,8 @@ export default [
       'La Liga',
       'Eredivise',
       'Liga Premier'
-    ]
+    ],
+    correct: 'Bundesliga'
   },
   {
     question: '¿Qué selección fue campeona del campeonato mundial de fútbol del 2014?',
@@ -47,7 +51,8 @@ export default [
       'Mexico',
       'España',
       'Francia'
-    ]
+    ],
+    correct: 'Alemania'
   },
   {
     question: '¿A qué país pertenece la Liga Calcio?',
@@ -57,7 +62,8 @@ export default [
       'Italia',
       'España',
       'Francia'
-    ]
+    ],
+    correct: 'Italia'
   },
   {
     question: '¿Quién es el máximo goleador de la historia de los mundiales?',
@@ -67,7 +73,8 @@ export default [
       'Klose',
       'Pele',
       'Maradona'
-    ]
+    ],
+    correct: 'Klose'
   },
   {
     question: '¿Qué famoso equipo se conoce como los reds?',
@@ -77,7 +84,8 @@ export default [
       'Inter de Milan',
       'Liverpool',
       'Milan'
-    ]
+    ],
+    correct: 'Liverpool'
   },
   {
     question: '¿Cuándo ganó Lionel Messi su primer balón de oro?',
@@ -87,7 +95,8 @@ export default [
       '2008',
       '2009',
       '2010'
-    ]
+    ],
+    correct: '2009'
   },
   {
     question: '¿Cuántos balones de oro ganó Luis Figo?',
@@ -97,6 +106,7 @@ export default [
       '2',
       '4',
       '1'
-    ]
+    ],
+    correct: '1'
   },
 ]

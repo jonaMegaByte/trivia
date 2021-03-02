@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { setActualPlayer } from '../actions'
+import Trivia from '../components/Trivia'
+import footballQ from '../state/questions/football'
+import techQ from '../state/questions/tech'
+import videogamesQ from '../state/questions/videogames'
 
-const Home = ({ saludo }) => {
+const Home = ({ setActualPlayer, actualPlayer }) => {
   const [ ready, setReady ] = useState(false)
   const [ completed, setCompleted ] = useState(false)
   const [ category, setCategory ] = useState('')
+  const [ playerInfo, setPlayerInfo ] = useState({})
+  let questionsSelected = null
+  
 
   const handleInfoCompleted = event => {
     event.preventDefault()
     setCompleted(true)
-    console.log(saludo)
   }
 
   const handleSelectCategory = event => {
@@ -18,8 +25,26 @@ const Home = ({ saludo }) => {
 
   const handleStart = event => {
     event.preventDefault()
-    console.log(category);
+    setActualPlayer({
+      category,
+      ...playerInfo
+    })
     setReady(true)
+  }
+
+  const handleInputChange = event => {
+    setPlayerInfo({
+      ...playerInfo,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  if (actualPlayer.category === 'football') {
+    questionsSelected = footballQ
+  } else if (actualPlayer.category === 'tech') {
+    questionsSelected = techQ
+  } else {
+    questionsSelected = videogamesQ
   }
 
   return (
@@ -34,15 +59,15 @@ const Home = ({ saludo }) => {
           <form onSubmit={handleInfoCompleted}>
             <label>
               <span>Nombre: </span>
-              <input type="text" placeholder="Nombre..." required />
+              <input type="text" placeholder="Nombre..." name='name' required onChange={handleInputChange} />
             </label>
             <label>
               <span>Edad: </span>
-              <input type="number" placeholder="Edad..." required />
+              <input type="number" placeholder="Edad..." name='age' required onChange={handleInputChange} />
             </label>
             <label>
               <span>Email: </span>
-              <input type="email" placeholder="Email..." required />
+              <input type="email" placeholder="Email..." name='email' required onChange={handleInputChange} />
             </label>
             <button>Escoger categoría</button>
           </form>
@@ -69,14 +94,23 @@ const Home = ({ saludo }) => {
           </div>
         )
       }
-      
+      {
+        ready && (
+          <Trivia questions={questionsSelected} />
+        )
+      }
     </div>
   )
 }
 
+const mapDispatchToProps = {
+  setActualPlayer
+}
+
 const mapStateToProps = state => {
   return {
+    actualPlayer: state.actualPlayer
   }
 }
 
-export default connect(mapStateToProps, null)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
