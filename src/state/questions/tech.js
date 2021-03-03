@@ -74,7 +74,7 @@ export default [
       '1999',
       '2012'
     ],
-    correct: 'Soda Popinski'
+    correct: '1997'
   },
   {
     question: '¿Cuál es el apodo del hacker más famoso de la historia?',

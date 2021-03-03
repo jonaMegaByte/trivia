@@ -96,7 +96,7 @@ export default [
       'CD Boy',
       '3DS'
     ],
-    correct: 'Popeye'
+    correct: '3DO'
   },
   {
     question: '¿Quiénes aparecían en la portada de FIFA 2004?',
@@ -107,6 +107,6 @@ export default [
       'Shevchenko, Raúl, Ronaldinho',
       'Messi, Ronaldo, Ronaldinho',
     ],
-    correct: 'Popeye'
+    correct: 'Henry, Ronaldinho, Del Piero'
   },
 ]

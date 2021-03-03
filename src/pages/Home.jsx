@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { setActualPlayer } from '../actions'
+import { setActualPlayer, clearActualPlayer } from '../actions'
 import Trivia from '../components/Trivia'
 import footballQ from '../state/questions/football'
 import techQ from '../state/questions/tech'
 import videogamesQ from '../state/questions/videogames'
 
-const Home = ({ setActualPlayer, actualPlayer }) => {
+const Home = ({ setActualPlayer, actualPlayer, clearActualPlayer }) => {
+  useEffect(()=>clearActualPlayer(),[])
   const [ ready, setReady ] = useState(false)
   const [ completed, setCompleted ] = useState(false)
   const [ category, setCategory ] = useState('')
@@ -103,14 +104,16 @@ const Home = ({ setActualPlayer, actualPlayer }) => {
   )
 }
 
-const mapDispatchToProps = {
-  setActualPlayer
-}
-
 const mapStateToProps = state => {
   return {
     actualPlayer: state.actualPlayer
   }
 }
+
+const mapDispatchToProps = {
+  setActualPlayer,
+  clearActualPlayer
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
